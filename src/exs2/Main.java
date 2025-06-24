@@ -1,6 +1,7 @@
 package exs2;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -15,7 +16,7 @@ public class Main {
             randomList.add(random.nextInt(101));
         }
 
-        randomList.sort(null);
+        Collections.sort(randomList);
 
         return randomList;
     }
@@ -23,11 +24,27 @@ public class Main {
     // clone list / reverse order
     public static List<Integer> createCloneList(List<Integer> originalList) {
 
-        List<Integer> cloneList = new ArrayList<>(originalList);
-// to continue
+        List<Integer> finalList = new ArrayList<>(originalList);
+        List<Integer> clonedReverseList = new ArrayList<>(originalList);
 
+        Collections.reverse(clonedReverseList);
+
+        finalList.addAll(clonedReverseList);
+
+        return finalList;
     }
 
     public static void main(String[] args) {
+        // 1.
+        int n = 5;
+
+        List<Integer> startingList = createOrderedList(n);
+        System.out.println("Starting List of " + n + " random numbers in order: ");
+        System.out.println(startingList);
+
+        // 2.
+        List<Integer> finalList = createCloneList(startingList);
+        System.out.println("New List with new elements in reverse: ");
+        System.out.println(finalList);
     }
 }

@@ -29,6 +29,11 @@ public class Main {
             } else {
                 duplicateWords.add(word);
             }
+
+            // if (add == false) it's a duplicate word
+            if (!distinctWords.add(word)) {
+                duplicateWords.add(word);
+            }
         }
         scanner.close();
 
